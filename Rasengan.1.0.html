@@ -24,10 +24,8 @@
             margin: 350px auto;
             position: relative;
             border-radius: 50%;
-            /* transition: all 5s;*/
-            
             transform-style: preserve-3d;
-            /* perspective: 1000px; */
+            transition: all 1s;
         }
 
         @keyframes ap {
@@ -58,15 +56,9 @@
         .main {
             width: 200px;
             height: 200px;
-            /* border: 1px solid red; */
             position: absolute;
-            /* margin: 200px auto; */
-            /* transition: all 120s 0s linear; */
             transform: translateZ(100px);
-            /* transform: translate(0,0,200px); */
             transform-style: preserve-3d;
-            /* background-color: yellow; */
-            /* background: -webkit-radial-gradient(center, #fff 24% , rgba(55, 175, 255, 0.5) 25%, rgba(55, 175, 255, 0) 26%); */
             box-sizing: border-box;
         }
 
@@ -102,13 +94,9 @@
         .n1 {
             width: 200px;
             height: 200px;
-            /* border: 1px solid red; */
             position: absolute;
-            /* margin: 200px auto; */
             transform-style: preserve-3d;
             box-sizing: border-box;
-            /* transform: rotateX(70deg); */
-            /* transition: all 120s 0s linear; */
         }
 
         .m {
@@ -120,14 +108,6 @@
         .n1 {
             animation: np 120s 0s linear infinite;
         }
-
-        /*  
-        .m1 {
-            animation: m1p 120s 0s infinite;
-        }
-        .n1 {
-            animation: n1p 120s 0s infinite;
-        } */
 
         @keyframes mp {
             0% {
@@ -159,9 +139,7 @@
             border: 1px solid rgba(55, 175, 255, 0.5);
             box-sizing: border-box;
             position: absolute;
-            background: -webkit-radial-gradient(center, #fff 24%, rgba(55, 175, 255, 0.5) 25%, rgba(55, 175, 255, 0) 26%)
-            /* transform: rotateY() translateZ() */
-            /* transform:  */
+            background: -webkit-radial-gradient(center, #fff 24%, rgba(55, 175, 255, 0.5) 25%, rgba(55, 175, 255, 0) 26%);
         }
 
         .m1 div {
@@ -171,9 +149,6 @@
             border: 1px solid rgba(55, 175, 255, 0.74);
             box-sizing: border-box;
             position: absolute;
-            /* background-color: #fff; */
-            /* transform: rotateY() translateZ() */
-            /* transform:  */
         }
 
         .build {
@@ -311,59 +286,57 @@
 
     <script>
         window.onload = function () {
-            // alert('xss');
             var om = document.getElementsByClassName('m')
             console.log(om);
             var adiv = om[0].getElementsByTagName('div');
-            var deg = 180 / adiv.length;
+            var deg = 180 / adiv.length;  // 求出每个环旋转的角度
             for (var i = 0; i < adiv.length; i++) {
-                // adiv[i].style.position = "all 2s 0s"
-                adiv[i].style.transform = "rotateY(" + i * deg + "deg)"; //translateZ(200px)
+                adiv[i].style.transform = "rotateY(" + i * deg + "deg)"; 
             }
             var on = document.getElementsByClassName('n')
             var adiv = on[0].getElementsByTagName('div');
             for (var i = 0; i < adiv.length; i++) {
-                adiv[i].style.transform = "rotateX(" + i * deg + "deg)"; //translateZ(200px)
+                adiv[i].style.transform = "rotateX(" + i * deg + "deg)"; 
             }
             var om1 = document.getElementsByClassName('m1')
             var adiv = om1[0].getElementsByTagName('div');
             for (var i = 0; i < adiv.length; i++) {
-                adiv[i].style.transform = "rotateX(" + i * deg + "deg)"; //translateZ(200px)
+                adiv[i].style.transform = "rotateX(" + i * deg + "deg)"; 
 
             }
             var on1 = document.getElementsByClassName('n1')
             var adiv = on1[0].getElementsByTagName('div');
             for (var i = 0; i < adiv.length; i++) {
-                adiv[i].style.transform = "rotateX(" + i * deg + "deg)"; //translateZ(200px)
+                adiv[i].style.transform = "rotateX(" + i * deg + "deg)"; 
             }
 
             //----------------------------------
             var adiv = om[1].getElementsByTagName('div');
             var deg = 180 / adiv.length;
             for (var i = 0; i < adiv.length; i++) {
-                // adiv[i].style.position = "all 2s 0s"
-                adiv[i].style.transform = "rotateY(" + i * deg + "deg)"; //translateZ(200px)
+
+                adiv[i].style.transform = "rotateY(" + i * deg + "deg)"; 
             }
             var on = document.getElementsByClassName('n')
             var adiv = on[1].getElementsByTagName('div');
             for (var i = 0; i < adiv.length; i++) {
-                adiv[i].style.transform = "rotateX(" + i * deg + "deg)"; //translateZ(200px)
+                adiv[i].style.transform = "rotateX(" + i * deg + "deg)"; 
             }
             var om1 = document.getElementsByClassName('m1')
             var adiv = om1[1].getElementsByTagName('div');
             for (var i = 0; i < adiv.length; i++) {
-                adiv[i].style.transform = "rotateX(" + i * deg + "deg)"; //translateZ(200px)
+                adiv[i].style.transform = "rotateX(" + i * deg + "deg)"; 
 
             }
             var on1 = document.getElementsByClassName('n1')
             var adiv = on1[1].getElementsByTagName('div');
             for (var i = 0; i < adiv.length; i++) {
-                adiv[i].style.transform = "rotateX(" + i * deg + "deg)"; //translateZ(200px)
+                adiv[i].style.transform = "rotateX(" + i * deg + "deg)"; 
             }
 
 
             var mm = document.getElementsByClassName("ma");
-            //----------------------------------
+            //----------------  3D 拖拽  ------------------
             var nowX, nowY,
                 lastX, lastY,
                 minusX, minusY,
